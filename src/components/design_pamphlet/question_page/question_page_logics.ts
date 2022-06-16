@@ -45,3 +45,25 @@ export const QuestionPageLogic: TypeOfQuestionPageLogic = {
     this.personalityPointsFromStart = personalityPointsFromStart;
   },
 };
+
+export interface InterfaceOfQuestionPageLogic {
+  personalityPointsFromStart: TypeOfPersonalityPoints;
+  addPoints: (personalityIndex: TypeOfPersonalityPointsIndex, score: number) => void;
+  resetPoints: () => void;
+}
+
+class QuestionPageLogicClass {
+  personalityPointsFromStart = personalityPointsFromStart;
+
+  addPoints(personalityIndex: TypeOfPersonalityPointsIndex, score: number) {
+    this.personalityPointsFromStart[personalityIndex] = +score;
+    // console.log(personalityIndex);
+    // console.log(score);
+    // console.log(this.personalityPointsFromStart);
+  }
+  resetPoints() {
+    this.personalityPointsFromStart = personalityPointsFromStart;
+  }
+}
+
+export const QuestionPageLogic2: InterfaceOfQuestionPageLogic = new QuestionPageLogicClass();

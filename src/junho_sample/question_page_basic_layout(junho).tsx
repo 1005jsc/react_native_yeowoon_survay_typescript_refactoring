@@ -3,7 +3,6 @@ import { ReactNode } from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { TypeOfGlobalLogics } from '../../../hightest_context/global_logics';
 import {
-  InterfaceOfQuestionPageLogic,
   TypeOfPersonalityPointsIndex,
   TypeOfQuestionPageLogic,
   TypeOfQuestionPageLogicAddPoints,
@@ -26,16 +25,18 @@ const styles = StyleSheet.create({
 // 페이지 레이아웃
 
 type TypeOfAddPointsParams = [personalityTypes: TypeOfPersonalityPointsIndex, score: number];
+
 type TypeOfArrayOfAddPointsParams = TypeOfAddPointsParams[];
-type TypeOfEachChoicesArray = [string, string, ...TypeOfArrayOfAddPointsParams];
-type TypeOfChoicesArray = TypeOfEachChoicesArray[];
+
+type TypeOfEachQuestionArray = [string, ...TypeOfArrayOfAddPointsParams];
+type TypeOfQuestionsArray = TypeOfEachQuestionArray[];
 
 type QuestionPageBasicLayoutProps = {
   navigation: any;
   src: any;
   questionText: string | JSX.Element;
   toNextQuestion: string;
-  choicesArray: TypeOfChoicesArray;
+  questionsArray: TypeOfQuestionsArray;
   children: ReactNode;
   globalLogics: TypeOfGlobalLogics;
 };
@@ -45,7 +46,7 @@ export function QuestionPageBasicLayout({
   src,
   questionText,
   toNextQuestion,
-  choicesArray,
+  questionsArray,
   globalLogics,
 }: QuestionPageBasicLayoutProps) {
   return (
@@ -56,23 +57,20 @@ export function QuestionPageBasicLayout({
         <B.ImageImg source={src} />
       </B.ImageView>
       <B.QuestionView>
-        <B.QuestionText>
-          {typeof questionText === 'string' ? (
-            <B.QuestionText>{`${questionText}`}</B.QuestionText>
-          ) : (
-            <>{questionText}</>
-          )}
-        </B.QuestionText>
+        {typeof questionText === 'string' ? (
+          <B.QuestionText>{`${questionText}`}</B.QuestionText>
+        ) : (
+          <>{questionText}</>
+        )}
       </B.QuestionView>
-      {choicesArray.map((value) => (
+      {questionsArray.map((value) => (
         <QuestionsLayout
-          key={value[0]}
+          key={nanoid()}
           navigation={navigation}
           toNextQuestion={toNextQuestion}
-          choiceText={value[1]}
-          choicesArray={choicesArray}
-          questionPageLogic={globalLogics.questionPageLogic2}
-          choiceKey={value[0]}
+          choiceText={value[0]}
+          addPointParams={questionsArray}
+          questionPageLogic={globalLogics.questionPageLogic}
         ></QuestionsLayout>
       ))}
     </B.FirstView>
@@ -85,37 +83,27 @@ type QuestionsLayoutProps = {
   navigation: any;
   toNextQuestion: string;
   choiceText: string;
-  choicesArray: TypeOfChoicesArray;
-  questionPageLogic: InterfaceOfQuestionPageLogic;
-  choiceKey: string;
+  addPointParams: TypeOfQuestionsArray;
+  questionPageLogic: TypeOfQuestionPageLogic;
 };
 
 export function QuestionsLayout({
   navigation,
   toNextQuestion,
   choiceText,
-  choicesArray,
-  choiceKey,
+  addPointParams,
   questionPageLogic,
 }: QuestionsLayoutProps) {
-  const addPoints = (id: string) => {
-    choicesArray.forEach((eachChoicesArray) => {
-      if (eachChoicesArray[0] === id) {
-        const yes = eachChoicesArray.slice(2, eachChoicesArray.length);
-        console.log(yes);
-        yes.forEach((value) => {
-          questionPageLogic.addPoints(value[0] as TypeOfPersonalityPointsIndex, value[1] as number);
-        });
-      }
-    });
-    console.log(questionPageLogic.personalityPointsFromStart);
+  const addPoints = () => {
+    const addPointsArray1 = addPointParams.slice(1, addPointParams.length);
+    console.log(addPointsArray1);
   };
 
   return (
     <TouchableOpacity
       style={styles.touchableOpacity}
       onPress={() => {
-        addPoints(choiceKey);
+        addPoints();
         navigation.navigate(`${toNextQuestion}`);
       }}
     >
