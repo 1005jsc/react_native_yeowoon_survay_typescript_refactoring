@@ -5,8 +5,6 @@ import { TypeOfGlobalLogics } from '../../../hightest_context/global_logics';
 import {
   InterfaceOfQuestionPageLogic,
   TypeOfPersonalityPointsIndex,
-  TypeOfQuestionPageLogic,
-  TypeOfQuestionPageLogicAddPoints,
 } from '../question_page_logics';
 import * as B from './question_page_basic_layout.style';
 

@@ -57,9 +57,6 @@ class QuestionPageLogicClass {
 
   addPoints(personalityIndex: TypeOfPersonalityPointsIndex, score: number) {
     this.personalityPointsFromStart[personalityIndex] = +score;
-    // console.log(personalityIndex);
-    // console.log(score);
-    // console.log(this.personalityPointsFromStart);
   }
   resetPoints() {
     this.personalityPointsFromStart = personalityPointsFromStart;

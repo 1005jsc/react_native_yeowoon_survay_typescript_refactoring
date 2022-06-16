@@ -27,6 +27,12 @@ type RootStackParamList = {
   QuestionNo1: undefined;
   QuestionNo2: undefined;
   QuestionNo3: undefined;
+  QuestionNo4: undefined;
+  QuestionNo5: undefined;
+  QuestionNo6: undefined;
+  QuestionNo7: undefined;
+  QuestionNo8: undefined;
+  QuestionNo9: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -58,12 +64,36 @@ export default function App() {
             options={{ headerShown: false }}
           />
           {/* 여행 후 당신은? */}
-          {/* <Stack.Screen name="QuestionNo4" component={QuestionPage.No4} options={{ headerShown: false }} />
-      <Stack.Screen name="QuestionNo5" component={QuestionPage.No5} options={{ headerShown: false }} />
-      <Stack.Screen name="QuestionNo6" component={QuestionPage.No6} options={{ headerShown: false }} />
-      <Stack.Screen name="QuestionNo7" component={QuestionPage.No7} options={{ headerShown: false }} />
-      <Stack.Screen name="QuestionNo8" component={QuestionPage.No8} options={{ headerShown: false }} />
-      <Stack.Screen name="QuestionNo9" component={QuestionPage.No9} options={{ headerShown: false }} /> */}
+          <Stack.Screen
+            name="QuestionNo4"
+            component={QuestionPage.No4}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="QuestionNo5"
+            component={QuestionPage.No5}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="QuestionNo6"
+            component={QuestionPage.No6}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="QuestionNo7"
+            component={QuestionPage.No7}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="QuestionNo8"
+            component={QuestionPage.No8}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="QuestionNo9"
+            component={QuestionPage.No9}
+            options={{ headerShown: false }}
+          />
           {/* 테스트 결과 */}
           {/* <Stack.Screen name="improvisive" component={Improvisive} options={{ headerShown: false }}/> 
       <Stack.Screen name="exploring" component={Exploring} options={{ headerShown: false }}/> 
