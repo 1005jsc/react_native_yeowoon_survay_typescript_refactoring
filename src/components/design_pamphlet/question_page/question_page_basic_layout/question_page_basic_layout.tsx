@@ -1,6 +1,12 @@
+import { nanoid } from 'nanoid';
 import { ReactNode } from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { TypeOfQuestionPageLogic } from '../../../hightest_context/app_logics';
+import { TypeOfGlobalLogics } from '../../../hightest_context/global_logics';
+import {
+  TypeOfPersonalityPointsIndex,
+  TypeOfQuestionPageLogic,
+  TypeOfQuestionPageLogicAddPoints,
+} from '../question_page_logics';
 import * as B from './question_page_basic_layout.style';
 
 const styles = StyleSheet.create({
@@ -18,14 +24,21 @@ const styles = StyleSheet.create({
 
 // 페이지 레이아웃
 
+type TypeOfAddPointsParams = [personalityTypes: TypeOfPersonalityPointsIndex, score: number];
+
+type TypeOfArrayOfAddPointsParams = TypeOfAddPointsParams[];
+
+type TypeOfEachQuestionArray = [string, ...TypeOfArrayOfAddPointsParams];
+type TypeOfQuestionsArray = TypeOfEachQuestionArray[];
+
 type QuestionPageBasicLayoutProps = {
   navigation: any;
   src: any;
   questionText: string;
   toNextQuestion: string;
-  questionsArray: string[];
+  questionsArray: TypeOfQuestionsArray;
   children: ReactNode;
-  appLogics: TypeOfQuestionPageLogic;
+  globalLogics: TypeOfGlobalLogics;
 };
 
 export function QuestionPageBasicLayout({
@@ -34,7 +47,7 @@ export function QuestionPageBasicLayout({
   questionText,
   toNextQuestion,
   questionsArray,
-  appLogics,
+  globalLogics,
 }: QuestionPageBasicLayoutProps) {
   return (
     <B.FirstView>
@@ -46,12 +59,14 @@ export function QuestionPageBasicLayout({
       <B.QuestionView>
         <B.QuestionText>{`${questionText}`}</B.QuestionText>
       </B.QuestionView>
-      {questionsArray.map((eachQuestionText) => (
+      {questionsArray.map((value) => (
         <QuestionsLayout
-          key={eachQuestionText}
+          key={nanoid()}
           navigation={navigation}
           toNextQuestion={toNextQuestion}
-          choiceText={eachQuestionText}
+          choiceText={value[0]}
+          addPointParams={questionsArray}
+          questionPageLogic={globalLogics.questionPageLogic}
         ></QuestionsLayout>
       ))}
     </B.FirstView>
@@ -64,13 +79,27 @@ type QuestionsLayoutProps = {
   navigation: any;
   toNextQuestion: string;
   choiceText: string;
+  addPointParams: TypeOfQuestionsArray;
+  questionPageLogic: TypeOfQuestionPageLogic;
 };
 
-export function QuestionsLayout({ navigation, toNextQuestion, choiceText }: QuestionsLayoutProps) {
+export function QuestionsLayout({
+  navigation,
+  toNextQuestion,
+  choiceText,
+  addPointParams,
+  questionPageLogic,
+}: QuestionsLayoutProps) {
+  const addPoints = () => {
+    const addPointsArray1 = addPointParams.slice(1, addPointParams.length);
+    console.log(addPointsArray1);
+  };
+
   return (
     <TouchableOpacity
       style={styles.touchableOpacity}
       onPress={() => {
+        addPoints();
         navigation.navigate(`${toNextQuestion}`);
       }}
     >
