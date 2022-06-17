@@ -1,9 +1,12 @@
 import { nanoid } from 'nanoid';
 import { ScrollView, View } from 'react-native';
 import { GlobalLogics } from '../../../global_logic/global_logics';
+import { useHighestContext } from '../../hightest_context/highest_context';
 import { QuestionPageBasicLayout } from './question_page_basic_layout/question_page_basic_layout';
 
 export function No1({ navigation }: any) {
+  const highestContext = useHighestContext();
+
   return (
     <QuestionPageBasicLayout
       navigation={navigation}
@@ -19,7 +22,7 @@ export function No1({ navigation }: any) {
           ['efficient', 1],
         ],
       ]}
-      globalLogics={GlobalLogics}
+      globalLogics={highestContext}
       children={undefined}
       pageNumber={1}
     ></QuestionPageBasicLayout>
@@ -27,6 +30,8 @@ export function No1({ navigation }: any) {
 }
 
 export function No2({ navigation }: any) {
+  const highestContext = useHighestContext();
+
   return (
     <QuestionPageBasicLayout
       navigation={navigation}
@@ -43,13 +48,15 @@ export function No2({ navigation }: any) {
         ],
       ]}
       children={undefined}
-      globalLogics={GlobalLogics}
+      globalLogics={highestContext}
       pageNumber={2}
     ></QuestionPageBasicLayout>
   );
 }
 
 export function No3({ navigation }: any) {
+  const highestContext = useHighestContext();
+
   return (
     <ScrollView>
       <QuestionPageBasicLayout
@@ -67,7 +74,7 @@ export function No3({ navigation }: any) {
           [nanoid(), `액티비티와 색다른 경험을 찾아!`, ['passionate', 1], ['exploring', 1]],
         ]}
         children={undefined}
-        globalLogics={GlobalLogics}
+        globalLogics={highestContext}
         pageNumber={3}
       ></QuestionPageBasicLayout>
     </ScrollView>
@@ -75,6 +82,8 @@ export function No3({ navigation }: any) {
 }
 
 export function No4({ navigation }: any) {
+  const highestContext = useHighestContext();
+
   return (
     <ScrollView>
       <QuestionPageBasicLayout
@@ -97,7 +106,7 @@ export function No4({ navigation }: any) {
           ],
         ]}
         children={undefined}
-        globalLogics={GlobalLogics}
+        globalLogics={highestContext}
         pageNumber={4}
       ></QuestionPageBasicLayout>
     </ScrollView>
@@ -105,6 +114,8 @@ export function No4({ navigation }: any) {
 }
 
 export function No5({ navigation }: any) {
+  const highestContext = useHighestContext();
+
   return (
     <ScrollView>
       <QuestionPageBasicLayout
@@ -127,7 +138,7 @@ export function No5({ navigation }: any) {
           ],
         ]}
         children={undefined}
-        globalLogics={GlobalLogics}
+        globalLogics={highestContext}
         pageNumber={5}
       ></QuestionPageBasicLayout>
     </ScrollView>
@@ -135,6 +146,8 @@ export function No5({ navigation }: any) {
 }
 
 export function No6({ navigation }: any) {
+  const highestContext = useHighestContext();
+
   return (
     <ScrollView>
       <QuestionPageBasicLayout
@@ -151,7 +164,7 @@ export function No6({ navigation }: any) {
           [nanoid(), `여행=휴가=힐링 아냐?${'\n'}잘만큼 자고 뒹굴다 나가자...`, ['relaxing', 1]],
         ]}
         children={undefined}
-        globalLogics={GlobalLogics}
+        globalLogics={highestContext}
         pageNumber={6}
       ></QuestionPageBasicLayout>
     </ScrollView>
@@ -159,6 +172,8 @@ export function No6({ navigation }: any) {
 }
 
 export function No7({ navigation }: any) {
+  const highestContext = useHighestContext();
+
   return (
     <ScrollView>
       <QuestionPageBasicLayout
@@ -181,7 +196,7 @@ export function No7({ navigation }: any) {
           ],
         ]}
         children={undefined}
-        globalLogics={GlobalLogics}
+        globalLogics={highestContext}
         pageNumber={7}
       ></QuestionPageBasicLayout>
     </ScrollView>
@@ -189,6 +204,8 @@ export function No7({ navigation }: any) {
 }
 
 export function No8({ navigation }: any) {
+  const highestContext = useHighestContext();
+
   return (
     <ScrollView>
       <QuestionPageBasicLayout
@@ -201,7 +218,7 @@ export function No8({ navigation }: any) {
           [nanoid(), `남는 건 사진과 기념품이야!${'\n'}근데 왜 가방이 안잠기지...`, ['flexing', 2]],
         ]}
         children={undefined}
-        globalLogics={GlobalLogics}
+        globalLogics={highestContext}
         pageNumber={8}
       ></QuestionPageBasicLayout>
     </ScrollView>
@@ -209,6 +226,8 @@ export function No8({ navigation }: any) {
 }
 
 export function No9({ navigation }: any) {
+  const highestContext = useHighestContext();
+
   return (
     <ScrollView>
       <QuestionPageBasicLayout
@@ -229,7 +248,7 @@ export function No9({ navigation }: any) {
           ],
         ]}
         children={undefined}
-        globalLogics={GlobalLogics}
+        globalLogics={highestContext}
         pageNumber={9}
       ></QuestionPageBasicLayout>
     </ScrollView>
