@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useContext } from 'react';
 import { View } from 'react-native';
-import { GlobalLogics } from './global_logics';
+import { GlobalLogics } from '../../global_logic/global_logics';
 
 type TypeOfHighestContext = any;
 

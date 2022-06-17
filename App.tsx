@@ -1,6 +1,16 @@
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as QuestionPage from './src/components/design_pamphlet/question_page/question_page_designs';
+import {
+  Efficient,
+  Exploring,
+  Flexing,
+  Improvisive,
+  OnPlanning,
+  Passionate,
+  Relaxing,
+  SafetyConcerning,
+} from './src/components/design_pamphlet/result_page/result_page_design';
 import { SurvayStart } from './src/components/design_pamphlet/survay_start/survay_start_design';
 import { HighestProvider } from './src/components/hightest_context/highest_context';
 
@@ -33,6 +43,14 @@ type RootStackParamList = {
   QuestionNo7: undefined;
   QuestionNo8: undefined;
   QuestionNo9: undefined;
+  improvisive: undefined;
+  exploring: undefined;
+  onPlanning: undefined;
+  efficient: undefined;
+  passionate: undefined;
+  flexing: undefined;
+  relaxing: undefined;
+  safetyConcerning: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -95,14 +113,22 @@ export default function App() {
             options={{ headerShown: false }}
           />
           {/* 테스트 결과 */}
-          {/* <Stack.Screen name="improvisive" component={Improvisive} options={{ headerShown: false }}/> 
-      <Stack.Screen name="exploring" component={Exploring} options={{ headerShown: false }}/> 
-      <Stack.Screen name="onPlanning" component={OnPlanning} options={{ headerShown: false }}/> 
-      <Stack.Screen name="efficient" component={Efficient} options={{ headerShown: false }}/> 
-      <Stack.Screen name="passionate" component={Passionate} options={{ headerShown: false }}/> 
-      <Stack.Screen name="flexing" component={Flexing} options={{ headerShown: false }}/> 
-      <Stack.Screen name="relaxing" component={Relaxing} options={{ headerShown: false }}/> 
-      <Stack.Screen name="safetyConcerning" component={SafetyConcerning} options={{ headerShown: false }}/>  */}
+          <Stack.Screen
+            name="improvisive"
+            component={Improvisive}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen name="exploring" component={Exploring} options={{ headerShown: false }} />
+          <Stack.Screen name="onPlanning" component={OnPlanning} options={{ headerShown: false }} />
+          <Stack.Screen name="efficient" component={Efficient} options={{ headerShown: false }} />
+          <Stack.Screen name="passionate" component={Passionate} options={{ headerShown: false }} />
+          <Stack.Screen name="flexing" component={Flexing} options={{ headerShown: false }} />
+          <Stack.Screen name="relaxing" component={Relaxing} options={{ headerShown: false }} />
+          <Stack.Screen
+            name="safetyConcerning"
+            component={SafetyConcerning}
+            options={{ headerShown: false }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </HighestProvider>

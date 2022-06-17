@@ -1,9 +1,11 @@
 import { nanoid } from 'nanoid';
 import { ReactNode } from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { TypeOfGlobalLogics } from '../../../hightest_context/global_logics';
+import { InterfaceOfGlobalLogic } from '../../../../global_logic/global_logic';
+import { TypeOfGlobalLogics } from '../../../../global_logic/global_logics';
 import {
   InterfaceOfQuestionPageLogic,
+  QuestionPageLogic2,
   TypeOfPersonalityPointsIndex,
 } from '../question_page_logics';
 import * as B from './question_page_basic_layout.style';
@@ -36,6 +38,7 @@ type QuestionPageBasicLayoutProps = {
   choicesArray: TypeOfChoicesArray;
   children: ReactNode;
   globalLogics: TypeOfGlobalLogics;
+  pageNumber: number;
 };
 
 export function QuestionPageBasicLayout({
@@ -45,6 +48,7 @@ export function QuestionPageBasicLayout({
   toNextQuestion,
   choicesArray,
   globalLogics,
+  pageNumber,
 }: QuestionPageBasicLayoutProps) {
   return (
     <B.FirstView>
@@ -70,7 +74,9 @@ export function QuestionPageBasicLayout({
           choiceText={value[1]}
           choicesArray={choicesArray}
           questionPageLogic={globalLogics.questionPageLogic2}
+          globalLogic={globalLogics.globalLogic}
           choiceKey={value[0]}
+          pageNumber={pageNumber}
         ></QuestionsLayout>
       ))}
     </B.FirstView>
@@ -86,6 +92,8 @@ type QuestionsLayoutProps = {
   choicesArray: TypeOfChoicesArray;
   questionPageLogic: InterfaceOfQuestionPageLogic;
   choiceKey: string;
+  pageNumber: number;
+  globalLogic: InterfaceOfGlobalLogic;
 };
 
 export function QuestionsLayout({
@@ -95,12 +103,13 @@ export function QuestionsLayout({
   choicesArray,
   choiceKey,
   questionPageLogic,
+  pageNumber,
+  globalLogic,
 }: QuestionsLayoutProps) {
   const addPoints = (id: string) => {
     choicesArray.forEach((eachChoicesArray) => {
       if (eachChoicesArray[0] === id) {
         const yes = eachChoicesArray.slice(2, eachChoicesArray.length);
-        console.log(yes);
         yes.forEach((value) => {
           questionPageLogic.addPoints(value[0] as TypeOfPersonalityPointsIndex, value[1] as number);
         });
@@ -109,12 +118,24 @@ export function QuestionsLayout({
     console.log(questionPageLogic.personalityPointsFromStart);
   };
 
+  const returnPoints = () => {
+    const yes = questionPageLogic.returnResult(
+      questionPageLogic.personalityPointsFromStart,
+      globalLogic
+    );
+    return yes;
+  };
+
   return (
     <TouchableOpacity
       style={styles.touchableOpacity}
       onPress={() => {
         addPoints(choiceKey);
-        navigation.navigate(`${toNextQuestion}`);
+        if (pageNumber !== 9) {
+          navigation.navigate(`${toNextQuestion}`);
+        } else {
+          navigation.navigate(`${returnPoints()}`);
+        }
       }}
     >
       <B.ChoiceView>

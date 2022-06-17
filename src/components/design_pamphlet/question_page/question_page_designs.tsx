@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 import { ScrollView, View } from 'react-native';
-import { GlobalLogics } from '../../hightest_context/global_logics';
+import { GlobalLogics } from '../../../global_logic/global_logics';
 import { QuestionPageBasicLayout } from './question_page_basic_layout/question_page_basic_layout';
 
 export function No1({ navigation }: any) {
@@ -21,6 +21,7 @@ export function No1({ navigation }: any) {
       ]}
       globalLogics={GlobalLogics}
       children={undefined}
+      pageNumber={1}
     ></QuestionPageBasicLayout>
   );
 }
@@ -43,6 +44,7 @@ export function No2({ navigation }: any) {
       ]}
       children={undefined}
       globalLogics={GlobalLogics}
+      pageNumber={2}
     ></QuestionPageBasicLayout>
   );
 }
@@ -66,6 +68,7 @@ export function No3({ navigation }: any) {
         ]}
         children={undefined}
         globalLogics={GlobalLogics}
+        pageNumber={3}
       ></QuestionPageBasicLayout>
     </ScrollView>
   );
@@ -95,6 +98,7 @@ export function No4({ navigation }: any) {
         ]}
         children={undefined}
         globalLogics={GlobalLogics}
+        pageNumber={4}
       ></QuestionPageBasicLayout>
     </ScrollView>
   );
@@ -124,6 +128,7 @@ export function No5({ navigation }: any) {
         ]}
         children={undefined}
         globalLogics={GlobalLogics}
+        pageNumber={5}
       ></QuestionPageBasicLayout>
     </ScrollView>
   );
@@ -147,6 +152,7 @@ export function No6({ navigation }: any) {
         ]}
         children={undefined}
         globalLogics={GlobalLogics}
+        pageNumber={6}
       ></QuestionPageBasicLayout>
     </ScrollView>
   );
@@ -176,6 +182,7 @@ export function No7({ navigation }: any) {
         ]}
         children={undefined}
         globalLogics={GlobalLogics}
+        pageNumber={7}
       ></QuestionPageBasicLayout>
     </ScrollView>
   );
@@ -195,6 +202,7 @@ export function No8({ navigation }: any) {
         ]}
         children={undefined}
         globalLogics={GlobalLogics}
+        pageNumber={8}
       ></QuestionPageBasicLayout>
     </ScrollView>
   );
@@ -222,6 +230,7 @@ export function No9({ navigation }: any) {
         ]}
         children={undefined}
         globalLogics={GlobalLogics}
+        pageNumber={9}
       ></QuestionPageBasicLayout>
     </ScrollView>
   );
