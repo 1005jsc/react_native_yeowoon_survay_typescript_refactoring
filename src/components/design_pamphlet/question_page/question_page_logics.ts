@@ -32,25 +32,25 @@ export type TypeOfQuestionPageLogicAddPoints = (
   score: number
 ) => void;
 
-export type TypeOfQuestionPageLogic = {
-  personalityPointsFromStart: TypeOfPersonalityPoints;
-  addPoints: TypeOfQuestionPageLogicAddPoints;
-  resetPoints: () => void;
-};
+// export type TypeOfQuestionPageLogic = {
+//   personalityPointsFromStart: TypeOfPersonalityPoints;
+//   addPoints: TypeOfQuestionPageLogicAddPoints;
+//   resetPoints: () => void;
+// };
 
-export const QuestionPageLogic: TypeOfQuestionPageLogic = {
-  personalityPointsFromStart: personalityPointsFromStart,
-  addPoints(personalityIndex: TypeOfPersonalityPointsIndex, score: number) {
-    this.personalityPointsFromStart[personalityIndex] = +score;
-  },
-  resetPoints() {
-    this.personalityPointsFromStart = personalityPointsFromStart;
-  },
-};
+// export const QuestionPageLogic: TypeOfQuestionPageLogic = {
+//   personalityPointsFromStart: personalityPointsFromStart,
+//   addPoints(personalityIndex: TypeOfPersonalityPointsIndex, score: number) {
+//     this.personalityPointsFromStart[personalityIndex] = +score;
+//   },
+//   resetPoints() {
+//     this.personalityPointsFromStart = personalityPointsFromStart;
+//   },
+// };
 
 export interface InterfaceOfQuestionPageLogic {
   personalityPointsFromStart: TypeOfPersonalityPoints;
-  addPoints: (personalityIndex: TypeOfPersonalityPointsIndex, score: number) => void;
+  addPoints: TypeOfQuestionPageLogicAddPoints;
   resetPoints: () => void;
   returnResult: (
     personalityPoints: TypeOfPersonalityPoints,

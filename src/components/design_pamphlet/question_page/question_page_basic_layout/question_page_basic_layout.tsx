@@ -115,7 +115,7 @@ export function QuestionsLayout({
         });
       }
     });
-    console.log(questionPageLogic.personalityPointsFromStart);
+    // console.log(questionPageLogic.personalityPointsFromStart);
   };
 
   const returnPoints = () => {
