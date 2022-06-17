@@ -1,8 +1,9 @@
 import { nanoid } from 'nanoid';
 import { ScrollView, View } from 'react-native';
-import { GlobalLogics } from '../../../global_logic/global_logics';
+import styled from 'styled-components/native';
 import { useHighestContext } from '../../hightest_context/highest_context';
 import { QuestionPageBasicLayout } from './question_page_basic_layout/question_page_basic_layout';
+import { QuestionText } from './question_page_basic_layout/question_page_basic_layout.style';
 
 export function No1({ navigation }: any) {
   const highestContext = useHighestContext();
@@ -32,11 +33,19 @@ export function No1({ navigation }: any) {
 export function No2({ navigation }: any) {
   const highestContext = useHighestContext();
 
+  const QuestionTextNo2 = styled(QuestionText)`
+    font-size: 24px;
+  `;
+
   return (
     <QuestionPageBasicLayout
       navigation={navigation}
       src={require(`../../../../public/img/survay/question_page/2.png`)}
-      questionText={`원래 예산은 200만인 상황, ${'\n'}하고 싶은 걸 하면 예산 초과라면?`}
+      questionText={
+        <QuestionTextNo2>
+          `원래 예산은 200만인 상황, ${'\n'}하고 싶은 걸 하면 예산 초과라면?`
+        </QuestionTextNo2>
+      }
       toNextQuestion={`QuestionNo3`}
       choicesArray={[
         [nanoid(), `이번만 여행인가? 현생 살아야지!`, ['onPlanning', 1], ['efficient', 1]],
