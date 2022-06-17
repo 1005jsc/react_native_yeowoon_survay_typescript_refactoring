@@ -5,7 +5,6 @@ import { InterfaceOfGlobalLogic } from '../../../../global_logic/global_logic';
 import { TypeOfGlobalLogics } from '../../../../global_logic/global_logics';
 import {
   InterfaceOfQuestionPageLogic,
-  QuestionPageLogic2,
   TypeOfPersonalityPointsIndex,
 } from '../question_page_logics';
 import * as B from './question_page_basic_layout.style';
@@ -106,7 +105,6 @@ export function QuestionsLayout({
   pageNumber,
   globalLogic,
 }: QuestionsLayoutProps) {
-  // const [testResult, setTestResult] = useState<string>('');
   const addPoints = (id: string) => {
     choicesArray.forEach((eachChoicesArray) => {
       if (eachChoicesArray[0] === id) {
@@ -116,7 +114,6 @@ export function QuestionsLayout({
         });
       }
     });
-    // console.log(questionPageLogic.personalityPointsFromStart);
   };
 
   const returnPoints = () => {

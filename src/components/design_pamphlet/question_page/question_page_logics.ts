@@ -58,7 +58,7 @@ export interface InterfaceOfQuestionPageLogic {
   ) => string;
 }
 
-class QuestionPageLogicClass {
+class QuestionPageLogicClass implements InterfaceOfQuestionPageLogic {
   personalityPointsFromStart = { ...personalityPointsFromZero };
 
   addPoints(personalityIndex: TypeOfPersonalityPointsIndex, score: number) {
