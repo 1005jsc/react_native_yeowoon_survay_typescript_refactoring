@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export function SurvayStart({ navigation }) {
+export function SurvayStart({ navigation }: any) {
   return (
     <T.FirstView>
       <StatusBarView></StatusBarView>

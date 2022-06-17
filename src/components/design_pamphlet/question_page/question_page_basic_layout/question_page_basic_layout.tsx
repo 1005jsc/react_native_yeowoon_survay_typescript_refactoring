@@ -72,7 +72,7 @@ export function QuestionPageBasicLayout({
           toNextQuestion={toNextQuestion}
           choiceText={value[1]}
           choicesArray={choicesArray}
-          questionPageLogic={globalLogics.questionPageLogic2}
+          questionPageLogic={globalLogics.questionPageLogic}
           globalLogic={globalLogics.globalLogic}
           choiceKey={value[0]}
           pageNumber={pageNumber}

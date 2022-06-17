@@ -1,15 +1,15 @@
 import {
   InterfaceOfQuestionPageLogic,
-  QuestionPageLogic2,
+  QuestionPageLogic,
 } from '../components/design_pamphlet/question_page/question_page_logics';
 import { GlobalLogicObject, InterfaceOfGlobalLogic } from './global_logic';
 
 export type TypeOfGlobalLogics = {
-  questionPageLogic2: InterfaceOfQuestionPageLogic;
+  questionPageLogic: InterfaceOfQuestionPageLogic;
   globalLogic: InterfaceOfGlobalLogic;
 };
 
 export const GlobalLogics: TypeOfGlobalLogics = {
-  questionPageLogic2: QuestionPageLogic2,
+  questionPageLogic: QuestionPageLogic,
   globalLogic: GlobalLogicObject,
 };

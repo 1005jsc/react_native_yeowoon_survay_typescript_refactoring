@@ -80,4 +80,4 @@ class QuestionPageLogicClass implements InterfaceOfQuestionPageLogic {
   }
 }
 
-export const QuestionPageLogic2: InterfaceOfQuestionPageLogic = new QuestionPageLogicClass();
+export const QuestionPageLogic: InterfaceOfQuestionPageLogic = new QuestionPageLogicClass();

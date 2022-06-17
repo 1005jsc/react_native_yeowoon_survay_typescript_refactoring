@@ -5,7 +5,9 @@ type ViewProps = {
   children: ReactNode;
 };
 
-type Props = {};
+type Props = {
+  children: ReactNode;
+};
 
 export const FirstView = ({ children }: ViewProps) => {
   return <T.FirstView>{children}</T.FirstView>;
