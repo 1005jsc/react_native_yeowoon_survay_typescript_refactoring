@@ -16,7 +16,7 @@ type TypeOfPersonalityPoints = {
   [key in TypeOfPersonalityPointsIndex]: number;
 };
 
-const personalityPointsFromStart: TypeOfPersonalityPoints = {
+const personalityPointsFromZero: TypeOfPersonalityPoints = {
   improvisive: 0,
   exploring: 0,
   onPlanning: 0,
@@ -55,18 +55,18 @@ export interface InterfaceOfQuestionPageLogic {
   returnResult: (
     personalityPoints: TypeOfPersonalityPoints,
     globalLogic: InterfaceOfGlobalLogic
-  ) => Array<any>;
+  ) => string;
 }
 
 class QuestionPageLogicClass {
-  personalityPointsFromStart = personalityPointsFromStart;
+  personalityPointsFromStart = { ...personalityPointsFromZero };
 
   addPoints(personalityIndex: TypeOfPersonalityPointsIndex, score: number) {
     this.personalityPointsFromStart[personalityIndex] =
       this.personalityPointsFromStart[personalityIndex] + score;
   }
   resetPoints() {
-    this.personalityPointsFromStart = personalityPointsFromStart;
+    this.personalityPointsFromStart = { ...personalityPointsFromZero };
   }
 
   returnResult(personalityPoints: TypeOfPersonalityPoints, globalLogic: InterfaceOfGlobalLogic) {

@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { InterfaceOfGlobalLogic } from '../../../../global_logic/global_logic';
 import { TypeOfGlobalLogics } from '../../../../global_logic/global_logics';
@@ -106,6 +106,7 @@ export function QuestionsLayout({
   pageNumber,
   globalLogic,
 }: QuestionsLayoutProps) {
+  // const [testResult, setTestResult] = useState<string>('');
   const addPoints = (id: string) => {
     choicesArray.forEach((eachChoicesArray) => {
       if (eachChoicesArray[0] === id) {
@@ -134,7 +135,9 @@ export function QuestionsLayout({
         if (pageNumber !== 9) {
           navigation.navigate(`${toNextQuestion}`);
         } else {
-          navigation.navigate(`${returnPoints()}`);
+          const yo = returnPoints();
+          questionPageLogic.resetPoints();
+          navigation.navigate(`${yo}`);
         }
       }}
     >
