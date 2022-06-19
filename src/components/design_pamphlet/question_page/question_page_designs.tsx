@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import { ScrollView, View } from 'react-native';
+import { ScrollView } from 'react-native';
 import styled from 'styled-components/native';
 import { useHighestContext } from '../../hightest_context/highest_context';
 import { QuestionPageBasicLayout } from './question_page_basic_layout/question_page_basic_layout';

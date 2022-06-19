@@ -74,10 +74,9 @@ class QuestionPageLogicClass implements InterfaceOfQuestionPageLogic {
     const yes1 = Object.values(finalPoints);
     yes1.sort((a, b) => a - b);
     const highestPoints = yes1[yes1.length - 1];
-    const yes2 = Object.entries(finalPoints);
-    const yes3 = yes2.filter((smallArray) => smallArray[1] >= highestPoints);
+    const yes3 = Object.entries(finalPoints).filter((smallArray) => smallArray[1] >= highestPoints);
     return globalLogic.randomValueFromArray(yes3)[0];
   }
 }
 
-export const QuestionPageLogic: InterfaceOfQuestionPageLogic = new QuestionPageLogicClass();
+export const QuestionPageLogicObject: InterfaceOfQuestionPageLogic = new QuestionPageLogicClass();
